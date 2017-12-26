@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../storyboard.js"></script>
+    <script src="../Model/StoryModel.js"></script>
+    <script src="../Controller/StoryController.js"></script>
+</head>
+<body ng-app="storyApp" class="container-fluid">
+    <div ng-controller="StoryController as sc" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2" ng-repeat="storyType in sc.storyTypes">
+                {{storyType.name}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ng-repeat="story in sc.stories | filter: {type:storyType}" id="{{story.id}}">
+                            {{story.title}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h1>Current Story</h1>
+                    Title:       <input type="text" value="{{sc.updatingStory.title}}" /> <br />
+                    Description: <input class="col-md-8" type="text" value="{{sc.updatingStory.description}}" />  <br />
+                    Type:        <input class="col-md" type="text" value="{{sc.updatingStory.type.name}}" />  <br />
+                    Created Date: {{sc.updatingStory.created.toString()}} <br />
+                    <input type="button" value="Update" />
+                    <input type="button" value="Cancel" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
