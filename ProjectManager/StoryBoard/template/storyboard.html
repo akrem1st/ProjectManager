@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html >
+<html>
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -25,15 +25,15 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div>
-                    <h1>Current Story</h1>
-                    Title:       <input type="text" value="{{sc.updatingStory.title}}" /> <br />
-                    Description: <input class="col-md-8" type="text" value="{{sc.updatingStory.description}}" />  <br />
-                    Type:        <input class="col-md" type="text" value="{{sc.updatingStory.type.name}}" />  <br />
-                    Created Date: {{sc.updatingStory.created.toString()}} <br />
-                    <input type="button" value="Update" />
-                    <input type="button" value="Cancel" />
-                </div>
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="title">Title</label>
+                        <input type="text" class="form-control" id="title" ng-model="sc.updatingStory.title" placeholder="Enter Title">
+                        <label class="control-label" for="description">Describe</label>
+                        <input type="text" class="form-control" id="description" ng-model="sc.updatingStory.description" placeholder="Enter Description">
+                        <input id="Button1" class="btn" type="button" ng-click="sc.updateStory" value="Update" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
