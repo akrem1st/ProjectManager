@@ -18,9 +18,9 @@
                 {{storyType.name}}
                 <div class="row">
                     <div class="col-md-12">
-                        <div ng-repeat="story in sc.stories | filter: {type:storyType}" id="{{story.id}}">
-                            {{story.title}}
-                        </div>
+                        <ul class="list-unstyled" ng-repeat="story in sc.stories | filter: {type:storyType}" id="{{story.id}}" ng-click="sc.changeCurrent(story.id);">
+                            <li>{{story.title}}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -31,12 +31,11 @@
                         <input type="text" class="form-control" id="title" ng-model="sc.updatingStory.title" placeholder="Enter Title">
                         <label class="control-label" for="description">Describe</label>
                         <input type="text" class="form-control" id="description" ng-model="sc.updatingStory.description" placeholder="Enter Description">
-                        <input id="Button1" class="btn" type="button" ng-click="sc.updateStory" value="Update" />
+                        <input id="Button1" class="btn" type="button" ng-click="sc.updateStory()" value="Update" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
 </body>
 </html>

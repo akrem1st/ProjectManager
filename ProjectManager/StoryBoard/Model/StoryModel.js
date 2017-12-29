@@ -7,8 +7,8 @@
     ]
     )
     .service('StoryModel', function (STORY_TYPES) {
-        var story = this;
-        story.stories = [
+        var sc = this;
+        sc.stories = [
             {
                 id: 101,
                 title: "story 1",
@@ -19,7 +19,14 @@
             {
                 id: 102,
                 title: "story 2",
-                description: "first story",
+                description: "second story",
+                type: STORY_TYPES[1],
+                created: new Date('2017/12/02')
+            },
+            {
+                id: 103,
+                title: "story 3",
+                description: "third story",
                 type: STORY_TYPES[2],
                 created: new Date('2017/12/02')
             }
